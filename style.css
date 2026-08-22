@@ -1,0 +1,272 @@
+/* =========================================================
+   推し布教ページ — デザイントークン
+   Palette : #FFF0F6 bg / #FFFFFF card / #FF6FA0 accent
+             #FF3D81 accent-strong / #FFE066 star / #5C3244 text
+   Type    : Mochiy Pop One(見出し・丸くてポップ) / Zen Maru Gothic(本文)
+   Signature: ふわふわ浮かぶハートの背景 + 押すたびに伸びる好き度メーター
+   ========================================================= */
+
+:root{
+  --bg-a: #FFF0F6;
+  --bg-b: #FFE3EE;
+  --card: #FFFFFF;
+  --pink: #FF6FA0;
+  --pink-strong: #FF3D81;
+  --star: #FFE066;
+  --text: #5C3244;
+  --text-soft: #9C6E82;
+  --radius: 22px;
+  --font-display: 'Mochiy Pop One', sans-serif;
+  --font-body: 'Zen Maru Gothic', sans-serif;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--bg-a), var(--bg-b));
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+}
+
+main{
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 32px 18px 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- 背景のふわふわハート ---------- */
+.bg-hearts{
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.floating-heart{
+  position: absolute;
+  bottom: -10%;
+  font-size: 22px;
+  opacity: 0.55;
+  animation: floatUp linear forwards;
+}
+@keyframes floatUp{
+  to{ transform: translateY(-115vh) rotate(20deg); opacity: 0; }
+}
+
+/* ---------- ヒーロー ---------- */
+.hero{
+  text-align: center;
+  padding: 12px 0 28px;
+}
+
+.badge{
+  display: inline-block;
+  background: var(--card);
+  color: var(--pink-strong);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin: 0 0 14px;
+  box-shadow: 0 4px 12px rgba(255, 61, 129, 0.15);
+}
+
+.avatar{
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FFFFFF, var(--pink) 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  box-shadow: 0 10px 30px -8px rgba(255, 111, 160, 0.6);
+  animation: bob 3.2s ease-in-out infinite;
+}
+@keyframes bob{
+  0%, 100%{ transform: translateY(0) rotate(-2deg); }
+  50%{ transform: translateY(-8px) rotate(2deg); }
+}
+
+.oshi-name{
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 8vw, 2.4rem);
+  color: var(--pink-strong);
+  margin: 4px 0 8px;
+  text-shadow: 2px 2px 0 #FFFFFF;
+}
+
+.catch{
+  font-size: 14.5px;
+  color: var(--text-soft);
+  margin: 0;
+}
+
+/* ---------- カード共通 ---------- */
+.card{
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 26px -14px rgba(92, 50, 68, 0.25);
+}
+
+.section-title{
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--pink-strong);
+  margin: 0 0 16px;
+}
+
+/* ---------- 好き度メーター ---------- */
+.meter-track{
+  background: #FFE3EE;
+  border-radius: 999px;
+  height: 20px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.meter-fill{
+  height: 100%;
+  width: 8%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--pink), var(--star));
+  transition: width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.meter-label{
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--text-soft);
+  margin: 0 0 18px;
+  min-height: 18px;
+}
+
+.heart-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--pink), var(--pink-strong));
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -6px rgba(255, 61, 129, 0.55);
+  transition: transform 0.12s ease;
+}
+.heart-btn:hover{ transform: translateY(-2px); }
+.heart-btn:active{ transform: translateY(1px) scale(0.98); }
+
+.heart-btn-icon{
+  display: inline-block;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%, 100%{ transform: scale(1); }
+  50%{ transform: scale(1.18); }
+}
+
+/* ---------- プロフィール / 推しポイント ---------- */
+.profile-list, .point-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-list li{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed #FFD9E8;
+  font-size: 13.5px;
+}
+.profile-list li:last-child{ border-bottom: none; }
+.profile-list .label{ color: var(--text-soft); }
+.profile-list .value{ font-weight: 700; }
+
+.point-list li{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.point-list .icon{ font-size: 18px; flex-shrink: 0; }
+
+/* ---------- ガチャ ---------- */
+.gacha-result{
+  background: #FFF6FA;
+  border: 2px dashed #FFC2DC;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 13.5px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 16px;
+  transition: transform 0.15s ease;
+}
+.gacha-result.pop{ animation: pop 0.35s ease; }
+@keyframes pop{
+  0%{ transform: scale(0.9); }
+  60%{ transform: scale(1.03); }
+  100%{ transform: scale(1); }
+}
+
+.gacha-btn{
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 13px;
+  background: var(--star);
+  color: #7A5B00;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14.5px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px -8px rgba(255, 224, 102, 0.9);
+  transition: transform 0.12s ease;
+}
+.gacha-btn:hover{ transform: translateY(-2px); }
+.gacha-btn:active{ transform: translateY(1px) scale(0.98); }
+
+/* ---------- 布教コメント ---------- */
+.fukyou-text{
+  font-size: 13.5px;
+  line-height: 1.9;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* ---------- フッター ---------- */
+.site-footer{
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--text-soft);
+  margin-top: 30px;
+}
+
+:focus-visible{
+  outline: 3px solid var(--pink-strong);
+  outline-offset: 2px;
+}

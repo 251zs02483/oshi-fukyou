@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>推し布教ページ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ふわふわ背景ハート(JSで生成) -->
+<div class="bg-hearts" id="bgHearts" aria-hidden="true"></div>
+
+<main>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <p class="badge">💗 MY OSHI 💗</p>
+    <div class="avatar" id="avatar">🎤</div>
+    <h1 class="oshi-name" id="oshiName">あいちゃん</h1>
+    <p class="catch" id="oshiCatch">私とあなたに七色の虹をかけるスマイル天使</p>
+  </section>
+
+  <!-- 好き度メーター -->
+  <section class="card love-card">
+    <h2 class="section-title">好き度メーター</h2>
+    <div class="meter-track">
+      <div class="meter-fill" id="meterFill"></div>
+    </div>
+    <p class="meter-label" id="meterLabel">まだ気になる程度…?</p>
+    <button class="heart-btn" id="heartBtn" aria-label="好き度をあげる">
+      <span class="heart-btn-icon">💖</span>
+      <span>推す！</span>
+    </button>
+  </section>
+
+  <!-- プロフィール -->
+  <section class="card">
+    <h2 class="section-title">プロフィール</h2>
+    <ul class="profile-list" id="profileList"></ul>
+  </section>
+
+  <!-- 推しポイント -->
+  <section class="card">
+    <h2 class="section-title">ここが尊い！推しポイント</h2>
+    <ul class="point-list" id="pointList"></ul>
+  </section>
+
+  <!-- トリビアガチャ -->
+  <section class="card gacha-card">
+    <h2 class="section-title">推しトリビアガチャ</h2>
+    <div class="gacha-result" id="gachaResult">ボタンを押すと豆知識が出てくるよ🎲</div>
+    <button class="gacha-btn" id="gachaBtn">ガチャを回す 🎰</button>
+  </section>
+
+  <!-- 布教コメント -->
+  <section class="card fukyou-card">
+    <h2 class="section-title">布教コメント</h2>
+    <p class="fukyou-text" id="fukyouText"></p>
+  </section>
+
+  <footer class="site-footer">
+    <p>Web アプリケーション開発 課題 — HTML / CSS / JavaScript</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
