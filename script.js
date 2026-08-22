@@ -2,13 +2,14 @@
 
 const CONFIG = {
   // ヒーロー部分
-  name: "あいちゃん",
+  name: "佐藤綺星",
   catchCopy: "私とあなたに七色の虹をかけるスマイル天使",
   avatarEmoji: "🎀", // アバターに表示する絵文字。
 
   // プロフィール
   profile: [
     { label: "所属", value: "AKB48" },
+    { label: "ニックネーム", value: "あいちゃん" },
     { label: "ペンライトカラー", value: "赤・白" },
     { label: "センター回数", value: "1回" },
   ],
